@@ -1,0 +1,77 @@
+body, html{
+    display: grid;
+    place-content: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+#board{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+.tile, .tile-d{
+    width: 5rem;
+    height: 5rem;
+    display: grid;
+    place-content: center;
+    max-width: calc(100vw / 8);
+    max-height: calc(100vh / 8);
+}
+.tile{
+    background-color: #ccc;
+}
+.tile-d{
+    background-color: #1e1e1e;
+}
+@media screen and (max-width: 640px){
+    .tile, .tile-d{
+        width: 4rem;
+        height: 4rem;
+    }
+}
+@media screen and (max-height: 640px){
+    .tile, .tile-d{
+        width: 4rem;
+        height: 4rem;
+    }
+}
+@media screen and (max-width: 512px){
+    .tile, .tile-d{
+        width: 3rem;
+        height: 3rem;
+    }
+}
+@media screen and (max-height: 512px){
+    .tile, .tile-d{
+        width: 3rem;
+        height: 3rem;
+    }
+}
+@media screen and (max-width: 384px){
+    .tile, .tile-d{
+        width: 2rem;
+        height: 2rem;
+    }
+}
+@media screen and (max-height: 384px){
+    .tile, .tile-d{
+        width: 2rem;
+        height: 2rem;
+    }
+}
+.tile:hover{
+    opacity: .9;
+}
+.tile-d:hover{
+    opacity: .9;
+}
+.selected {
+    background-color: #E4A610;
+}
+.option {
+    background-color: #e3b444;
+}
