@@ -27,42 +27,6 @@ body, html{
 .tile-d{
     background-color: #1e1e1e;
 }
-@media screen and (max-width: 640px){
-    .tile, .tile-d{
-        width: 4rem;
-        height: 4rem;
-    }
-}
-@media screen and (max-height: 640px){
-    .tile, .tile-d{
-        width: 4rem;
-        height: 4rem;
-    }
-}
-@media screen and (max-width: 512px){
-    .tile, .tile-d{
-        width: 3rem;
-        height: 3rem;
-    }
-}
-@media screen and (max-height: 512px){
-    .tile, .tile-d{
-        width: 3rem;
-        height: 3rem;
-    }
-}
-@media screen and (max-width: 384px){
-    .tile, .tile-d{
-        width: 2rem;
-        height: 2rem;
-    }
-}
-@media screen and (max-height: 384px){
-    .tile, .tile-d{
-        width: 2rem;
-        height: 2rem;
-    }
-}
 .tile:hover{
     opacity: .9;
 }
@@ -74,4 +38,88 @@ body, html{
 }
 .option {
     background-color: #e3b444;
+}
+.checker::after{
+    content: "";
+    position: relative;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 4rem;
+    height: 4rem;
+    background-color: #e3b444;
+}
+.checker-o::after{
+    content: "";
+    position: relative;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 4rem;
+    height: 4rem;
+    background-color: #e36444;
+}
+
+
+
+
+@media screen and (max-width: 640px){
+    .tile, .tile-d{
+        width: 4rem;
+        height: 4rem;
+    }
+    .checker::after, .checker-o::after{
+        width: 3rem;
+        height: 3rem;
+    }
+}
+@media screen and (max-height: 640px){
+    .tile, .tile-d{
+        width: 4rem;
+        height: 4rem;
+    }
+    .checker::after, .checker-o::after{
+        width: 3rem;
+        height: 3rem;
+    }
+}
+@media screen and (max-width: 512px){
+    .tile, .tile-d{
+        width: 3rem;
+        height: 3rem;
+    }
+    .checker::after, .checker-o::after{
+        width: 2rem;
+        height: 2rem;
+    }
+}
+@media screen and (max-height: 512px){
+    .tile, .tile-d{
+        width: 3rem;
+        height: 3rem;
+    }
+    .checker::after, .checker-o::after{
+        width: 2rem;
+        height: 2rem;
+    }
+}
+@media screen and (max-width: 384px){
+    .tile, .tile-d{
+        width: 2rem;
+        height: 2rem;
+    }
+    .checker::after, .checker-o::after{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}
+@media screen and (max-height: 384px){
+    .tile, .tile-d{
+        width: 2rem;
+        height: 2rem;
+    }
+    .checker::after, .checker-o::after{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 }
