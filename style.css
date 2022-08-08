@@ -23,9 +23,11 @@ body, html{
 }
 .tile{
     background-color: #ccc;
+    color: #ccc;
 }
 .tile-d{
     background-color: #1e1e1e;
+    color: #1e1e1e;
 }
 .tile:hover{
     opacity: .9;
@@ -33,7 +35,7 @@ body, html{
 .tile-d:hover{
     opacity: .9;
 }
-.selected {
+.selected, .selected-o{
     background-color: #E4A610;
 }
 .option {
@@ -59,8 +61,37 @@ body, html{
     height: 4rem;
     background-color: #e36444;
 }
-
-
+.tile.king::after, .tile-d.king::after{
+    content: "K";
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+/*
+.tile.king::after{
+    content: "";
+    position: relative;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    z-index: 10;
+    background-color: #ccc;
+}
+.tile-d.king::after{
+    content: "";
+    position: relative;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    z-index: 10;
+    background-color: #1e1e1e;
+}
+*/
 
 
 @media screen and (max-width: 640px){
@@ -72,6 +103,16 @@ body, html{
         width: 3rem;
         height: 3rem;
     }
+    .tile.king::after, .tile-d.king::after{
+        font-size: 2rem;
+    }
+    /*
+    .tile.king::before, .tile-d.king::before{
+        width: 2rem;
+        height: 2rem;
+    }
+    */
+
 }
 @media screen and (max-height: 640px){
     .tile, .tile-d{
@@ -82,6 +123,15 @@ body, html{
         width: 3rem;
         height: 3rem;
     }
+    .tile.king::after, .tile-d.king::after{
+        font-size: 2rem;
+    }
+    /*
+    .tile.king::before, .tile-d.king::before{
+        width: 2rem;
+        height: 2rem;
+    }
+    */
 }
 @media screen and (max-width: 512px){
     .tile, .tile-d{
@@ -92,6 +142,15 @@ body, html{
         width: 2rem;
         height: 2rem;
     }
+    .tile.king::after, .tile-d.king::after{
+        font-size: 1.2rem;
+    }
+    /*
+    .tile.king::before, .tile-d.king::before{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    */
 }
 @media screen and (max-height: 512px){
     .tile, .tile-d{
@@ -102,6 +161,15 @@ body, html{
         width: 2rem;
         height: 2rem;
     }
+    .tile.king::after, .tile-d.king::after{
+        font-size: 1.2rem;
+    }
+    /*
+    .tile.king::before, .tile-d.king::before{
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    */
 }
 @media screen and (max-width: 384px){
     .tile, .tile-d{
@@ -112,6 +180,15 @@ body, html{
         width: 1.5rem;
         height: 1.5rem;
     }
+    .tile.king::after, .tile-d.king::after{
+        font-size: 1rem;
+    }
+    /*
+    .tile.king::before, .tile-d.king::before{
+        width: 1rem;
+        height: 1rem;
+    }
+    */
 }
 @media screen and (max-height: 384px){
     .tile, .tile-d{
@@ -122,4 +199,13 @@ body, html{
         width: 1.5rem;
         height: 1.5rem;
     }
+    .tile.king::after, .tile-d.king::after{
+        font-size: 1rem;
+    }
+    /*
+    .tile.king::before, .tile-d.king::before{
+        width: 1rem;
+        height: 1rem;
+    }
+    */
 }
