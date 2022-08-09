@@ -38,6 +38,9 @@ body, html{
 .selected, .selected-o{
     background-color: #E4A610;
 }
+.selected:active{
+    background-color: #258a23;
+}
 .option {
     background-color: #e3b444;
 }
