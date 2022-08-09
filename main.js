@@ -1,3 +1,4 @@
+
 function getPieceLocation(tile) {
     var loc = [tile.getAttribute('data-col'), tile.getAttribute('data-row')];
     return loc;
@@ -146,11 +147,9 @@ $(document).ready(function() {
         }
     });
     $('.selected').click(function() {
-        console.log('success');
         var piecethis = this;
         var piece = $(this);
         var origin = $('.selected.checker');
-        console.log(origin);
         if (!piece.hasClass('checker')) {
             piece.addClass('checker');
             origin.removeClass('checker');
@@ -204,4 +203,11 @@ $(document).ready(function() {
         $('.down2left').removeClass('down2left');
     });
     // use .selected-o for opponent and .checker-o
+});
+
+
+$(document).ready(function() {
+    $('.selected').click(function() {
+        console.log('selected');
+    });
 });
