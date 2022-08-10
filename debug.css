@@ -1,0 +1,76 @@
+
+
+/* debug */
+
+.upright::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.upleft::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.downright::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.downleft::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.up2right::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.up2left::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.down2right::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.down2left::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #fff;
+}
+.origin::before {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background: #00f;
+}

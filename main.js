@@ -1,4 +1,13 @@
-
+function debug() {
+    $('head').append('<link rel="stylesheet" type="text/css" href="debug.css">');
+    var turnCount = turn;
+    const turnCheck = setInterval(function() {
+        if (turnCount != turn) {
+            turnCount = turn;
+            console.log('turn: ' + turn);
+        }
+    }, 100);
+}
 function getPieceLocation(tile) {
     var loc = [tile.getAttribute('data-col'), tile.getAttribute('data-row')];
     return loc;
@@ -67,6 +76,15 @@ function prepareForMove() {
             up2left.addClass('selected');
             down2right.addClass('selected');
             down2left.addClass('selected');
+            
+            $('.upright').removeClass('upright');
+            $('.upleft').removeClass('upleft');
+            $('.downright').removeClass('downright');            
+            $('.downleft').removeClass('downleft');
+            $('.up2right').removeClass('up2right');
+            $('.up2left').removeClass('up2left');
+            $('.down2right').removeClass('down2right');
+            $('.down2left').removeClass('down2left');
 
             upright.addClass('upright');
             upleft.addClass('upleft');
@@ -169,10 +187,13 @@ function prepareForMove() {
                     up2left.removeClass('selected');
                 }
             }
+            $('.selected').off('click');
             $('.selected:not(.checker)').click(function() {
                 var piecethis = this;
                 var piece = $(this);
                 var origin = $('.selected.checker');
+                $('.origin').removeClass('origin');
+                origin.addClass('origin');
                 if (!piece.hasClass('checker')) {
                     piece.addClass('checker');
                     origin.removeClass('checker');
@@ -247,6 +268,15 @@ function prepareForMove() {
             up2left.addClass('selected-o');
             down2right.addClass('selected-o');
             down2left.addClass('selected-o');
+
+            $('.upright').removeClass('upright');
+            $('.upleft').removeClass('upleft');
+            $('.downright').removeClass('downright');            
+            $('.downleft').removeClass('downleft');
+            $('.up2right').removeClass('up2right');
+            $('.up2left').removeClass('up2left');
+            $('.down2right').removeClass('down2right');
+            $('.down2left').removeClass('down2left');
 
             upright.addClass('upright');
             upleft.addClass('upleft');
@@ -349,10 +379,13 @@ function prepareForMove() {
                     down2left.removeClass('selected-o');
                 }
             }
+            $('.selected-o').off('click');
             $('.selected-o:not(.checker-o)').click(function() {
                 var piecethis = this;
                 var piece = $(this);
                 var origin = $('.selected-o.checker-o');
+                $('.origin').removeClass('origin');
+                origin.addClass('origin');
                 if (!piece.hasClass('checker-o')) {
                     piece.addClass('checker-o');
                     origin.removeClass('checker-o');
