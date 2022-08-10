@@ -169,7 +169,7 @@ function prepareForMove() {
                     up2left.removeClass('selected');
                 }
             }
-            $('.selected').click(function() {
+            $('.selected:not(.checker)').click(function() {
                 var piecethis = this;
                 var piece = $(this);
                 var origin = $('.selected.checker');
@@ -349,7 +349,7 @@ function prepareForMove() {
                     down2left.removeClass('selected-o');
                 }
             }
-            $('.selected-o').click(function() {
+            $('.selected-o:not(.checker-o)').click(function() {
                 var piecethis = this;
                 var piece = $(this);
                 var origin = $('.selected-o.checker-o');
