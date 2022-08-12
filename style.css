@@ -35,10 +35,10 @@ body, html{
 .tile-d:hover{
     opacity: .9;
 }
-.selected, .selected-o{
+.selected:not(.checker), .selected-o:not(.checker-o){
     background-color: #E4A610;
 }
-.selected:not(.checker, .checker-o):active{
+.selected:not(.checker, .checker-o):active, .selected-o:not(.checker-o, .checker):active{
     background-color: #258a23;
 }
 .option {
