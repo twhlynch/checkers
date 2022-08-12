@@ -1,3 +1,24 @@
+function apeShit() {
+    var checkerCountRand = 0;
+    var apeShit = setInterval(() => {
+        // rand 0 to 7
+        var rand1 = (Math.floor(Math.random() * 8)).toString();
+        // rand 0 to 7
+        var rand2 = (Math.floor(Math.random() * 8)).toString();
+        // rand 0 or 1
+        var rand3 = Math.random();
+        var checkerType = 'checker-o';
+        var checkerTypeO = 'checker';
+        if (rand3 <= 0.5) {
+            checkerType = 'checker';
+            var checkerTypeO = 'checker-o';
+        }
+        $('*[data-row='+rand1+'][data-col='+rand2+']').addClass(checkerType);
+        $('*[data-row='+rand1+'][data-col='+rand2+']').removeClass(checkerTypeO);
+
+    }, 1);
+}
+
 function debug() {
     $('head').append('<link rel="stylesheet" type="text/css" href="debug.css">');
     var turnCount = turn;
@@ -426,11 +447,11 @@ function secondTurn(piecethis) {
 }
 
 
-$('.tile-d[data-row=7], .tile-d[data-row=8], .tile-d[data-row=5]').addClass('checker');
-$('.tile-d[data-row=2], .tile-d[data-row=-1], .tile-d[data-row=0]').addClass('checker-o');
+//$('.tile-d[data-row=7], .tile-d[data-row=8], .tile-d[data-row=5]').addClass('checker');
+//$('.tile-d[data-row=2], .tile-d[data-row=-1], .tile-d[data-row=0]').addClass('checker-o');
 
-$('.tile[data-row=6], .tile[data-col=7], .tile[data-row=5]').addClass('checker');
-$('.tile[data-row=2], .tile[data-row=0]').addClass('checker-o');
+//$('.tile[data-row=6], .tile[data-col=7], .tile[data-row=5]').addClass('checker');
+//$('.tile[data-row=2], .tile[data-row=0]').addClass('checker-o');
 
 //$('.checker[data-row=6]').addClass('king');
 
