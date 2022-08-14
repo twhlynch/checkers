@@ -387,13 +387,13 @@ function secondTurn(piecethis) {
 }
 
 
-$('.tile-d[data-row=7], .tile-d[data-row=8], .tile-d[data-row=5]').addClass('checker');
-$('.tile-d[data-row=2], .tile-d[data-row=-1], .tile-d[data-row=0]').addClass('checker-o');
+$('.tile-d[data-row=7], .tile-d[data-row=6], .tile-d[data-row=5]').addClass('checker');
+$('.tile-d[data-row=2], .tile-d[data-row=1], .tile-d[data-row=0]').addClass('checker-o');
 
-$('.tile[data-row=6], .tile[data-col=7], .tile[data-row=5]').addClass('checker');
-$('.tile[data-row=2], .tile[data-row=0]').addClass('checker-o');
+//$('.tile[data-row=6], .tile[data-col=7], .tile[data-row=5]').addClass('checker');
+//$('.tile[data-row=2], .tile[data-row=0]').addClass('checker-o');
 
-$('.checker[data-row=6]').addClass('king');
+//$('.checker[data-row=6]').addClass('king');
 
 var turn = 1;
 
