@@ -42,8 +42,16 @@ function getPieceRelative(piece, [col, row]) {
     var newLoc = [(parseInt(loc[0]) + col).toString(), (parseInt(loc[1]) + row).toString()];
     return getPiece(newLoc);
 }
+var continueGame = true;
+
+function checkContinue() {
+    if (continueGame) {
+        window.setTimeout(checkContinue, 100);
+    }
+}
 
 function secondTurn(piecethis) {
+    continueGame = false;
     piece = $(piecethis);
     var clicked = false;
     $('.checker').off('click');
@@ -85,10 +93,11 @@ function secondTurn(piecethis) {
         //upleft.addClass('selected');
         //downright.addClass('selected');
         //downleft.addClass('selected');
-        up2right.addClass('selected');
-        up2left.addClass('selected');
-        down2right.addClass('selected');
-        down2left.addClass('selected');
+        
+        //up2right.addClass('selected');
+        //up2left.addClass('selected');
+        //down2right.addClass('selected');
+        //down2left.addClass('selected');
 
         upright.addClass('upright');
         upleft.addClass('upleft');
@@ -100,95 +109,24 @@ function secondTurn(piecethis) {
         down2left.addClass('down2left');
         // make selections
         if (piece.hasClass('king')) {
-            // up right
-            if (upright.hasClass('checker')) {
-                upright.removeClass('selected');
-                up2right.removeClass('selected');
+            if (upright.hasClass('checker-o') && !up2right.hasClass('checker-o')) {
+                up2right.addClass('selected');
             }
-            if (upright.hasClass('checker-o')) {
-                upright.removeClass('selected');
-                if (up2right.hasClass('checker') || up2right.hasClass('checker-o')) {
-                    up2right.removeClass('selected');
-                }
+            if (upleft.hasClass('checker-o') && !up2left.hasClass('checker-o')) {
+                up2left.addClass('selected');
             }
-            if (!upright.hasClass('checker') && !upright.hasClass('checker-o')) {
-                up2right.removeClass('selected');
+            if (downright.hasClass('checker-o') && !down2right.hasClass('checker-o')) {
+                down2right.addClass('selected');
             }
-            // up left
-            if (upleft.hasClass('checker')) {
-                upleft.removeClass('selected');
-                up2left.removeClass('selected');
-            }
-            if (upleft.hasClass('checker-o')) {
-                upleft.removeClass('selected');
-                if (up2left.hasClass('checker') || up2left.hasClass('checker-o')) {
-                    up2left.removeClass('selected');
-                }
-            }
-            if (!upleft.hasClass('checker') && !upleft.hasClass('checker-o')) {
-                up2left.removeClass('selected');
-            }
-            // down right
-            if (downright.hasClass('checker')) {
-                downright.removeClass('selected');
-                down2right.removeClass('selected');
-            }
-            if (downright.hasClass('checker-o')) {
-                downright.removeClass('selected');
-                if (down2right.hasClass('checker') || down2right.hasClass('checker-o')) {
-                    down2right.removeClass('selected');
-                }
-            }
-            if (!downright.hasClass('checker') && !downright.hasClass('checker-o')) {
-                down2right.removeClass('selected');
-            }
-            // down left
-            if (downleft.hasClass('checker')) {
-                downleft.removeClass('selected');
-                down2left.removeClass('selected');
-            }
-            if (downleft.hasClass('checker-o')) {
-                downleft.removeClass('selected');
-                if (down2left.hasClass('checker') || down2left.hasClass('checker-o')) {
-                    down2left.removeClass('selected');
-                }
-            }
-            if (!downleft.hasClass('checker') && !downleft.hasClass('checker-o')) {
-                down2left.removeClass('selected');
+            if (downleft.hasClass('checker-o') && !down2left.hasClass('checker-o')) {
+                down2left.addClass('selected');
             }
         } else {
-            downright.removeClass('selected');
-            downleft.removeClass('selected');
-            down2right.removeClass('selected');
-            down2left.removeClass('selected');
-
-            // up right
-            if (upright.hasClass('checker')) {
-                upright.removeClass('selected');
-                up2right.removeClass('selected');
+            if (upright.hasClass('checker-o') && !up2right.hasClass('checker-o')) {
+                up2right.addClass('selected');
             }
-            if (upright.hasClass('checker-o')) {
-                upright.removeClass('selected');
-                if (up2right.hasClass('checker') || up2right.hasClass('checker-o')) {
-                    up2right.removeClass('selected');
-                }
-            }
-            if (!upright.hasClass('checker') && !upright.hasClass('checker-o')) {
-                up2right.removeClass('selected');
-            }
-            // up left
-            if (upleft.hasClass('checker')) {
-                upleft.removeClass('selected');
-                up2left.removeClass('selected');
-            }
-            if (upleft.hasClass('checker-o')) {
-                upleft.removeClass('selected');
-                if (up2left.hasClass('checker') || up2left.hasClass('checker-o')) {
-                    up2left.removeClass('selected');
-                }
-            }
-            if (!upleft.hasClass('checker') && !upleft.hasClass('checker-o')) {
-                up2left.removeClass('selected');
+            if (upleft.hasClass('checker-o') && !up2left.hasClass('checker-o')) {
+                up2left.addClass('selected');
             }
         }
         // create click
@@ -211,24 +149,28 @@ function secondTurn(piecethis) {
                         if (getPieceRelative(piecethis, [-1, 1]).hasClass('checker-o')) {
                             getPieceRelative(piecethis, [-1, 1]).removeClass('checker-o');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('up2left')) {
                         if (getPieceRelative(piecethis, [1, 1]).hasClass('checker-o')) {
                             getPieceRelative(piecethis, [1, 1]).removeClass('checker-o');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('down2right')) {
                         if (getPieceRelative(piecethis, [-1, -1]).hasClass('checker-o')) {
                             getPieceRelative(piecethis, [-1, -1]).removeClass('checker-o');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('down2left')) {
                         if (getPieceRelative(piecethis, [1, -1]).hasClass('checker-o')) {
                             getPieceRelative(piecethis, [1, -1]).removeClass('checker-o');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }     
                     if (getPieceLocation(piecethis)[1] == 0) {
@@ -248,11 +190,7 @@ function secondTurn(piecethis) {
                 clicked == true;
             });
         // only once click is done resume
-        /*
-        if (clicked == false) {
-            secondTurn(piecethis);
-        }
-        */
+        
         console.log('second turn');
     } else if (piece.hasClass('checker-o')) {
         // check for possible moves
@@ -400,24 +338,28 @@ function secondTurn(piecethis) {
                         if (getPieceRelative(piecethis, [-1, 1]).hasClass('checker')) {
                             getPieceRelative(piecethis, [-1, 1]).removeClass('checker');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('up2left')) {
                         if (getPieceRelative(piecethis, [1, 1]).hasClass('checker')) {
                             getPieceRelative(piecethis, [1, 1]).removeClass('checker');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('down2right')) {
                         if (getPieceRelative(piecethis, [-1, -1]).hasClass('checker')) {
                             getPieceRelative(piecethis, [-1, -1]).removeClass('checker');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('down2left')) {
                         if (getPieceRelative(piecethis, [1, -1]).hasClass('checker')) {
                             getPieceRelative(piecethis, [1, -1]).removeClass('checker');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }     
                     if (getPieceLocation(piecethis)[1] == 0) {
@@ -437,13 +379,11 @@ function secondTurn(piecethis) {
                 clicked == true;
             });
         // only once click is done resume
-        /*
-        if (clicked == false) {
-            secondTurn(piecethis);
-        }
-        */
+        
         console.log('second turn');
     }
+    // re set up
+    continueGame = true;
 }
 
 
@@ -636,24 +576,28 @@ function prepareForMove() {
                         if (getPieceRelative(piecethis, [-1, 1]).hasClass('checker-o')) {
                             getPieceRelative(piecethis, [-1, 1]).removeClass('checker-o');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('up2left')) {
                         if (getPieceRelative(piecethis, [1, 1]).hasClass('checker-o')) {
                             getPieceRelative(piecethis, [1, 1]).removeClass('checker-o');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('down2right')) {
                         if (getPieceRelative(piecethis, [-1, -1]).hasClass('checker-o')) {
                             getPieceRelative(piecethis, [-1, -1]).removeClass('checker-o');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('down2left')) {
                         if (getPieceRelative(piecethis, [1, -1]).hasClass('checker-o')) {
                             getPieceRelative(piecethis, [1, -1]).removeClass('checker-o');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }     
                          
@@ -832,24 +776,28 @@ function prepareForMove() {
                         if (getPieceRelative(piecethis, [-1, 1]).hasClass('checker')) {
                             getPieceRelative(piecethis, [-1, 1]).removeClass('checker');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('up2left')) {
                         if (getPieceRelative(piecethis, [1, 1]).hasClass('checker')) {
                             getPieceRelative(piecethis, [1, 1]).removeClass('checker');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('down2right')) {
                         if (getPieceRelative(piecethis, [-1, -1]).hasClass('checker')) {
                             getPieceRelative(piecethis, [-1, -1]).removeClass('checker');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                     if (piece.hasClass('down2left')) {
                         if (getPieceRelative(piecethis, [1, -1]).hasClass('checker')) {
                             getPieceRelative(piecethis, [1, -1]).removeClass('checker');
                             secondTurn(piecethis);
+                            checkContinue();
                         }
                     }
                 }
